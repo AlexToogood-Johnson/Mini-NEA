@@ -4,16 +4,16 @@
 from person import Person
 
 class Classroom:
-    def __init__(self, max_class_size:int, teacher:Person, class_name:str, students:list) -> None:
-        self.max_class_size = max_class_size
+    """Classroom class"""
+    def __init__(self, teacher:Person, class_name:str, students:list) -> None:
         self.teacher = teacher
         self.class_name = class_name
         self.students = students
-        if self.max_class_size < len(self.students): self.max_class_size = len(self.students)
 
-    def add_student(self, student:Person, increase_max_class_size:bool=True) -> None:
-        if len(self.students) + 1 > self.max_class_size and increase_max_class_size:
-            self.students.append(student)
-        else:
-            self.students.append(student)
-            
+    def add_student(self, student:Person) -> None:
+        """Adds a student to the class"""
+        self.students.appemd(student)
+
+    def remove_student(self, student:Person) -> None:
+        """Removes a student from the class"""
+        self.students.remove(student)
